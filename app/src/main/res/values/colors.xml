@@ -5,11 +5,22 @@
     <color name="colorAccent">#FF4081</color>
     <color name="viewBg">#f1f5f8</color>
     <color name="album_title">#4c4c4c</color>
+
+    <!-- Finger Print -->
+    <color name="textPrimary">#f5f5f5</color>
+    <color name="textPrimaryDark">#95aab4</color>
+    <color name="errorText">#ff7878</color>
+
     <!-- Screens background color-->
     <color name="bg_screen1">#f64c73</color>
     <color name="bg_screen2">#20d2bb</color>
     <color name="bg_screen3">#3395ff</color>
     <color name="bg_screen4">#c873f4</color>
+    <color name="welcome_screen">#fffde7</color>
+    <color name="setting_screen">#40c4ff</color>
+    <color name="main_screen">#e040fb</color>
+
+
 
     <!-- dots inactive colors -->
     <color name="dot_dark_screen1">#d1395c</color>
@@ -36,4 +47,12 @@
         <item>@color/dot_dark_screen3</item>
         <item>@color/dot_dark_screen4</item>
     </array>
+
+    <!-- Material Radio Group -->
+    <color name="mc_title_bar">#FF16C2DD</color>
+    <color name="mc_state_pressed">#FF1088DD</color>
+    <color name="mc_default_pager">#FFF0F0F0</color>
+    <color name="mc_black_t">#55000000</color>
+    <color name="mc_black_t_pic">#22000000</color>
+    <color name="mc_gallery_bg">#FF16C2DD</color>
 </resources>

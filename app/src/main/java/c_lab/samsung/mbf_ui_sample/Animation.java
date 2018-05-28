@@ -3,15 +3,15 @@ package c_lab.samsung.mbf_ui_sample;
 /**
  * Created by Lincoln on 18/05/16.
  */
-public class Album {
+public class Animation {
     private String name;
     private int numOfSongs;
     private int thumbnail;
 
-    public Album() {
+    public Animation() {
     }
 
-    public Album(String name, int numOfSongs, int thumbnail) {
+    public Animation(String name, int numOfSongs, int thumbnail) {
         this.name = name;
         this.numOfSongs = numOfSongs;
         this.thumbnail = thumbnail;

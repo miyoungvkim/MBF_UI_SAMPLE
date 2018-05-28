@@ -1,21 +1,17 @@
 package c_lab.samsung.mbf_ui_sample;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.ImageView;
-
-import com.bumptech.glide.Glide;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,21 +19,48 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private AlbumsAdapter adapter;
-    private List<Album> albumList;
+    private AnimationAdapter adapter;
+    private List<Animation> animationList;
+    private View decorView;
+    private int uiOption;
+    private Button btnSetting;
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            decorView.setSystemUiVisibility(uiOption);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
-        //initCollapsingToolbar();
+        //hide status and navigation bar
+        decorView = getWindow().getDecorView();
+        uiOption = getWindow().getDecorView().getSystemUiVisibility();
+        uiOption =  View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                // Set the content to appear under the system bars so that the
+                // content doesn't resize when the system bars hide and show.
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                // Hide the nav bar and status bar
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+
+        setContentView(R.layout.activity_main);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        btnSetting = (Button) findViewById(R.id.btn_setting);
+        btnSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { launchFingerPrintScreen(); }
+        });
 
-        albumList = new ArrayList<>();
-        adapter = new AlbumsAdapter(this, albumList);
+        animationList = new ArrayList<>();
+        adapter = new AnimationAdapter(this, animationList);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -45,61 +68,24 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        prepareAlbums();
-/*
-        try {
-            Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-*/
+        prepareAnimation();
         // We normally won't show the welcome slider again in real app
         // For testing how to show welcome slide
-        PrefManager prefManager = new PrefManager(getApplicationContext());
-        prefManager.setFirstTimeLaunch(true);
+        //final PrefManager prefManager = new PrefManager(getApplicationContext());
+        //prefManager.setFirstTimeLaunch(true);
         //startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
         //finish();
 
     }
-
-    /**
-     * Initializing collapsing toolbar
-     * Will show and hide the toolbar title on scroll
-     */
-    /*
-    private void initCollapsingToolbar() {
-        final CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(" ");
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
-        appBarLayout.setExpanded(true);
-
-        // hiding & showing the title when toolbar expanded & collapsed
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle(getString(R.string.app_name));
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbar.setTitle(" ");
-                    isShow = false;
-                }
-            }
-        });
+    private void launchFingerPrintScreen() {
+        startActivity(new Intent(MainActivity.this, FingerprintActivity.class));
+        //finish();
     }
-    */
 
     /**
      * Adding few albums for testing
      */
-    private void prepareAlbums() {
+    private void prepareAnimation() {
         int[] covers = new int[]{
                 R.drawable.album1,
                 R.drawable.album2,
@@ -113,35 +99,35 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.album10,
                 R.drawable.album11};
 
-        Album a = new Album("True Romance", 13, covers[0]);
-        albumList.add(a);
+        Animation a = new Animation("True Romance", 13, covers[0]);
+        animationList.add(a);
 
-        a = new Album("Xscpae", 8, covers[1]);
-        albumList.add(a);
+        a = new Animation("Xscpae", 8, covers[1]);
+        animationList.add(a);
 
-        a = new Album("Maroon 5", 11, covers[2]);
-        albumList.add(a);
+        a = new Animation("Maroon 5", 11, covers[2]);
+        animationList.add(a);
 
-        a = new Album("Born to Die", 12, covers[3]);
-        albumList.add(a);
+        a = new Animation("Born to Die", 12, covers[3]);
+        animationList.add(a);
 
-        a = new Album("Honeymoon", 14, covers[4]);
-        albumList.add(a);
+        a = new Animation("Honeymoon", 14, covers[4]);
+        animationList.add(a);
 
-        a = new Album("I Need a Doctor", 1, covers[5]);
-        albumList.add(a);
+        a = new Animation("I Need a Doctor", 1, covers[5]);
+        animationList.add(a);
 
-        a = new Album("Loud", 11, covers[6]);
-        albumList.add(a);
+        a = new Animation("Loud", 11, covers[6]);
+        animationList.add(a);
 
-        a = new Album("Legend", 14, covers[7]);
-        albumList.add(a);
+        a = new Animation("Legend", 14, covers[7]);
+        animationList.add(a);
 
-        a = new Album("Hello", 11, covers[8]);
-        albumList.add(a);
+        a = new Animation("Hello", 11, covers[8]);
+        animationList.add(a);
 
-        a = new Album("Greatest Hits", 17, covers[9]);
-        albumList.add(a);
+        a = new Animation("Greatest Hits", 17, covers[9]);
+        animationList.add(a);
 
         adapter.notifyDataSetChanged();
     }

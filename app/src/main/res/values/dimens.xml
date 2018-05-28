@@ -6,9 +6,12 @@
     <dimen name="dots_height">30dp</dimen>
     <dimen name="dots_margin_bottom">20dp</dimen>
     <dimen name="img_width_height">120dp</dimen>
-    <dimen name="slide_title">30dp</dimen>
+    <dimen name="setting_title">30dp</dimen>
     <dimen name="slide_desc">16dp</dimen>
     <dimen name="desc_padding">40dp</dimen>
+    <dimen name="main_activity_top_height">60dp</dimen>
+    <dimen name="main_activity_bottom_height">30dp</dimen>
+
 
     <!-- for main activity -->
     <dimen name="item_offset">10dp</dimen>
@@ -16,7 +19,7 @@
     <dimen name="backdrop_title">30dp</dimen>
     <dimen name="backdrop_subtitle">18dp</dimen>
     <dimen name="card_margin">5dp</dimen>
-    <dimen name="card_album_radius">0dp</dimen>
+    <dimen name="card_album_radius">5dp</dimen>
     <dimen name="album_cover_height">160dp</dimen>
     <dimen name="album_title_padding">10dp</dimen>
     <dimen name="album_title">15dp</dimen>

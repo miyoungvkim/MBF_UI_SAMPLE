@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "c_lab.samsung.mbf_ui_sample"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -33,4 +33,7 @@ dependencies {
 
     // Glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    // Lottie for animation Icon
+    compile 'com.airbnb.android:lottie:2.5.1'
+
 }
