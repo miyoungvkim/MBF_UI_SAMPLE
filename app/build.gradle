@@ -36,4 +36,8 @@ dependencies {
     // Lottie for animation Icon
     compile 'com.airbnb.android:lottie:2.5.1'
 
+    // Exoplayer
+    compile 'com.google.android.exoplayer:exoplayer:r2.5.1'
+
+
 }

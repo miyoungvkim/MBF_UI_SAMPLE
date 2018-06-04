@@ -2,6 +2,7 @@ package c_lab.samsung.mbf_ui_sample;
 
 import android.animation.Animator;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -72,7 +73,7 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.MyVi
             @Override
             public void onClick(View view){
                 Toast.makeText(mContext, "click "+holder.title.getText(), Toast.LENGTH_SHORT).show();
-
+                mContext.startActivity(new Intent(mContext, PlayActivity.class));
             }
         });
 
