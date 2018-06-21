@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="c_lab.samsung.mbf_ui_sample.MainActivity"
+    tools:context="creativeLab.samsung.mbf.Activity.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <android.support.v7.widget.RecyclerView

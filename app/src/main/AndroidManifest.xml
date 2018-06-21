@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="c_lab.samsung.mbf_ui_sample">
+    package="creativeLab.samsung.mbf">
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".Activity.WelcomeActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,35 +19,44 @@
         </activity>
 
         <activity
-            android:name=".FingerprintActivity"
+            android:name=".Activity.FingerprintActivity"
             android:label="@string/title_activity_finger_print"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
         <activity
-            android:name=".SettingActivity"
+            android:name=".Activity.SettingActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:label="@string/title_activity_welcome"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
 
         <activity
-            android:name=".PlayActivity"
+            android:name=".Activity.EpisodeActivity"
+            android:label="@string/title_activity_welcome"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
 
         <activity
-            android:name=".PreferenceActivity"
+            android:name=".Activity.PlayActivity_exoplayer"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".Activity.PlayActivity_with_tensorflow"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".Activity.PreferenceActivity"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>

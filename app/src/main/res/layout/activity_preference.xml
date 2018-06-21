@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="c_lab.samsung.mbf_ui_sample.PreferenceActivity">
+    tools:context="creativeLab.samsung.mbf.Activity.PreferenceActivity">
     <PreferenceCategory android:title="General">
         <EditTextPreference
             android:defaultValue="@string/default_gallery_storage"

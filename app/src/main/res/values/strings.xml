@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MBF_UI_SAMPLE</string>
+    <string name="app_name">My Baby Friend</string>
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>

@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "c_lab.samsung.mbf_ui_sample"
+        applicationId "creativeLab.samsung.mbf"
         minSdkVersion 23
         targetSdkVersion 27
         versionCode 1
@@ -16,7 +16,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    // 20180607 add for tenserflow
+    aaptOptions {
+        noCompress "tflite"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //
 }
+
+// 20180607 add for tenserflow
+repositories {
+    maven {
+        url 'http://google.bintray.com/tensorflow'
+    }
+}
+//
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -39,5 +56,6 @@ dependencies {
     // Exoplayer
     compile 'com.google.android.exoplayer:exoplayer:r2.5.1'
 
-
+    // add for tensorflow
+    compile 'org.tensorflow:tensorflow-lite:+'
 }
